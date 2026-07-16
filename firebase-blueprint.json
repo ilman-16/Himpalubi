@@ -1,0 +1,207 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "UserProfile details of members and admins",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "division": { "type": "string" },
+        "avatar": { "type": "string" },
+        "phone": { "type": "string" },
+        "bio": { "type": "string" },
+        "nim": { "type": "string" },
+        "angkatan": { "type": "string" },
+        "status": { "type": "string" },
+        "studyProgram": { "type": "string" },
+        "twoFactorEnabled": { "type": "boolean" },
+        "twoFactorSecret": { "type": "string" },
+        "registeredAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role", "division", "avatar", "twoFactorEnabled", "registeredAt"]
+    },
+    "EventItem": {
+      "title": "EventItem",
+      "description": "Scheduled events and meetings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "location": { "type": "string" },
+        "category": { "type": "string" },
+        "attendanceOpen": { "type": "boolean" },
+        "attendanceCode": { "type": "string" },
+        "gcalSynced": { "type": "boolean" },
+        "gcalEventId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "description", "date", "time", "location", "category", "attendanceOpen", "gcalSynced", "createdAt"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Record of student attendance for events",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventId": { "type": "string" },
+        "eventTitle": { "type": "string" },
+        "eventDate": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userDivision": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "eventId", "eventTitle", "eventDate", "userId", "userName", "userDivision", "status"]
+    },
+    "BeritaAcara": {
+      "title": "BeritaAcara",
+      "description": "Meeting minutes and official letters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventId": { "type": "string" },
+        "eventTitle": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "date": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "approvedBy": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "tags": { "type": "array" }
+      },
+      "required": ["id", "eventId", "eventTitle", "title", "content", "date", "authorName", "authorRole", "tags"]
+    },
+    "ActivityDocumentation": {
+      "title": "ActivityDocumentation",
+      "description": "Uploaded media files and logs of activities",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "date": { "type": "string" },
+        "uploaderName": { "type": "string" },
+        "location": { "type": "string" },
+        "likes": { "type": "number" }
+      },
+      "required": ["id", "title", "description", "imageUrl", "date", "uploaderName", "likes"]
+    },
+    "SystemNotification": {
+      "title": "SystemNotification",
+      "description": "System alerts and notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "date": { "type": "string" },
+        "read": { "type": "boolean" },
+        "type": { "type": "string" },
+        "targetRole": { "type": "string" }
+      },
+      "required": ["id", "title", "body", "date", "read", "type", "targetRole"]
+    },
+    "KasTransaction": {
+      "title": "KasTransaction",
+      "description": "Organization financial records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "amount": { "type": "number" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "category": { "type": "string" },
+        "recordedBy": { "type": "string" },
+        "memberName": { "type": "string" },
+        "receiptUrl": { "type": "string" }
+      },
+      "required": ["id", "type", "amount", "description", "date", "category", "recordedBy"]
+    },
+    "MemberKasRecord": {
+      "title": "MemberKasRecord",
+      "description": "Dues records for members",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "division": { "type": "string" },
+        "avatar": { "type": "string" },
+        "payments": { "type": "object" },
+        "totalPaid": { "type": "number" }
+      },
+      "required": ["userId", "userName", "division", "avatar", "payments", "totalPaid"]
+    },
+    "ProkerItem": {
+      "title": "ProkerItem",
+      "description": "Programs and committees information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "division": { "type": "string" },
+        "budget": { "type": "number" },
+        "status": { "type": "string" },
+        "meetingsCount": { "type": "number" },
+        "committee": { "type": "array" },
+        "rundown": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "date": { "type": "string" },
+        "attendanceSessions": { "type": "array" },
+        "meetingMinutes": { "type": "array" },
+        "documents": { "type": "array" },
+        "budgets": { "type": "array" }
+      },
+      "required": ["id", "name", "description", "division", "budget", "status", "meetingsCount", "committee", "rundown", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Collection of user profiles"
+    },
+    "events/{eventId}": {
+      "schema": "EventItem",
+      "description": "Collection of organizational events"
+    },
+    "attendance/{attendanceId}": {
+      "schema": "AttendanceRecord",
+      "description": "Collection of event attendance sheets"
+    },
+    "minutes/{minuteId}": {
+      "schema": "BeritaAcara",
+      "description": "Collection of berita acara / meeting minutes"
+    },
+    "documentation/{docId}": {
+      "schema": "ActivityDocumentation",
+      "description": "Collection of gallery activity documentations"
+    },
+    "notifications/{notifId}": {
+      "schema": "SystemNotification",
+      "description": "Collection of push and systems notifications"
+    },
+    "kas_transactions/{txId}": {
+      "schema": "KasTransaction",
+      "description": "Collection of cash book entries"
+    },
+    "member_kas/{recordId}": {
+      "schema": "MemberKasRecord",
+      "description": "Collection of individual member's monthly dues log"
+    },
+    "prokers/{prokerId}": {
+      "schema": "ProkerItem",
+      "description": "Collection of student work programs (prokers)"
+    }
+  }
+}

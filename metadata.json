@@ -1,0 +1,6 @@
+{
+  "name": "Portal Organisasi Mahasiswa",
+  "description": "Platform digital organisasi mahasiswa untuk upload berita acara, dokumentasi kegiatan, absensi rapat, manajemen pengurus, dasbor partisipasi, integrasi Google Calendar, dan autentikasi 2FA dengan mode offline.",
+  "requestFramePermissions": ["notifications", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

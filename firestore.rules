@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net (Pillar 1)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- REUSABLE SECURITY HELPERS ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // --- COLLECTION MATCH BLOCKS ---
+
+    match /users/{userId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /events/{eventId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /attendance/{attendanceId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /minutes/{minuteId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /documentation/{docId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /notifications/{notifId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /kas_transactions/{txId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /member_kas/{recordId} {
+      allow read, write: if isSignedIn();
+    }
+
+    match /prokers/{prokerId} {
+      allow read, write: if isSignedIn();
+    }
+  }
+}
